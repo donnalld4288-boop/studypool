@@ -108,8 +108,9 @@ input:focus {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #e0245e;
-    font-weight: 500;
+    color: #000000;
+    font-weight: 100;
+    text-transform: capitalize;
     font-size: 13px;
 }
 .remember-me input[type="checkbox"] {
@@ -268,6 +269,8 @@ input:focus {
 /* ============================================
    MOBILE RESPONSIVE STYLES
    ============================================ */
+
+   
 @media (max-width: 768px) {
     .container {
         width: 90vw;

